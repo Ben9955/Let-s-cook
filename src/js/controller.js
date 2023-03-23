@@ -13,6 +13,7 @@ import MenuView from "./view/menuView";
 import RecipeView from "./view/recipeView";
 
 import BookmarkView from "./view/bookmarkView";
+import recipeView from "./view/recipeView";
 
 if (module.hot) {
   module.hot.accept();
@@ -101,26 +102,11 @@ const controlAddBookmark = function () {
   BookmarkView._renderSearchResults(state.bookmarks);
 };
 
-// const controlBookmarkView = function () {
-//   if (state.bookmarks.length < 1) return;
+const controllServings = function (action) {
+  manageDataServings(10, state.recipe);
 
-//   BookmarkView._renderSearchResults(state.bookmarks);
-// };
-
-/*
-
-
-
-
-*/
-
-// const controllServingsDec = function () {
-//   manageDataServings("Dec");
-// };
-
-// const controllServingsInc = function () {
-//   manageDataServings("Inc");
-// };
+  RecipeView._renderRecipe(state.recipe);
+};
 
 /*
 
@@ -129,11 +115,10 @@ const controlAddBookmark = function () {
 
 */
 
-// BookmarkView._handleBookmarks(controlBookmarkView);
 BookmarkView._handleBookmarksContainer();
 RecipeView._handelAddToBookmark(controlAddBookmark);
 
-// RecipeView._manageServings(controllServingsDec, controllServingsInc);
+RecipeView._manageServings(controllServings);
 RecipeView._reloadHandler(controlloadhandler);
 
 SearchView._submitHandler(controlSubmitHandler);

@@ -203,22 +203,21 @@ export const removeBookmark = function (recipe) {
 
 */
 
-export const manageDataServings = function (action) {
-  state.recipe.ingredients.forEach((ing) => {
-    const singleAmount =
-      Number(ing.amount.split(" ")[0]) / Number(state.recipe.servings);
-    let ammountNum = Number(ing.amount.split(" ")[0]);
-    if (action === "Dec" && +state.recipe.servings > 1) {
-      console.log("dsfdsfgds");
-      state.recipe.servings = +state.recipe.servings - 1;
-
-      ammountNum -= singleAmount;
-
-      ing.amount = ing.amount.split(" ")[1]
-        ? ammountNum + ing.amount.split(" ")[1]
-        : ammountNum;
-    }
+export const manageDataServings = function (newServings, recipe) {
+  const recipeNew = recipe;
+  recipeNew.ingredients.forEach((ing) => {
+    console.log(ing);
+    const quantity = +ing.amount.split(" ")[0];
+    ing.amount =
+      (quantity * newServings) / recipeNew.servings + ing.amount.split(" ")[1];
+    // newQuant = oldquant * newsrving / oldserving
   });
+
+  recipeNew.servings = newServings;
+
+  state.recipe = recipeNew;
+
+  return recipe;
 };
 
 /*

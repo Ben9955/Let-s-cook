@@ -35,18 +35,17 @@ class RecipeView {
     });
   }
 
-  _manageServings(handlerMinus, handlerPlus) {
+  _manageServings(handler) {
     const recipeServings = document.querySelector(".recipe__servings");
 
     if (!recipeServings) return;
     recipeServings.addEventListener("click", function (e) {
-      const btn = e.target.closest(".recipe__icon");
+      const btn = e.target.closest(".recipe__icons__icon");
 
       if (!btn) return;
+      btn.classList.contains("servings-minus") && handler("decrease");
 
-      btn.classList.contains("servings-minus") && handlerMinus();
-
-      btn.classList.contains("servings-plus") && handlerPlus();
+      btn.classList.contains("servings-plus") && handler("increase");
     });
   }
 
@@ -66,12 +65,12 @@ class RecipeView {
       <div class="recipe__ingredients-header">
         <h3 class="heading-tertiary">Ingredients</h3>
         <div class="recipe__servings">
-          <div class="recipe__icon servings-minus">
+          <div class="recipe__icons__icon servings-minus">
             <i class="fa-solid fa-minus"></i>
           </div>
 
           <p class="recipe__number-servings">${data.servings}</p>
-          <div class="recipe__icon  servings-plus">
+          <div class="recipe__icons__icon  servings-plus">
             <i class="fa-solid fa-plus"></i>
           </div>
         </div>
