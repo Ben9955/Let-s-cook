@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/fc5d0bceec.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+
+    <script defer type="module" src="/src/js/controller.js"></script>
+    <title>Let's Cook</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__logo-container">
+          <img
+            src="/src/img/LogoMakr-4QOYM0.png"
+            alt="logo"
+            class="header__logo"
+          />
+        </div>
+        <form class="search">
+          <input
+            type="text"
+            required
+            class="search__field"
+            placeholder="Seach for your meal.."
+          />
+          <button type="submit" class="btn search__btn">
+            <i class="search__icon fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item nav__diet">
+              <a href="#">Diet</a>
+              <ul class="nav__item__menu diet">
+                <li class="menuItem">Gluten Free</li>
+                <li class="menuItem">Ketogenic</li>
+                <li class="menuItem">Vegetarian</li>
+                <li class="menuItem">Vegan</li>
+                <li class="menuItem">Pescetarian</li>
+                <li class="menuItem">Lacto Vegetarian</li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a href="#">Cuisines</a>
+
+              <ul class="nav__item__menu cuisine">
+                <li class="menuItem">African</li>
+                <li class="menuItem">American</li>
+                <li class="menuItem">Caribbean</li>
+                <li class="menuItem">Chinese</li>
+                <li class="menuItem">European</li>
+                <li class="menuItem">Italian</li>
+                <li class="menuItem">Japanese</li>
+                <li class="menuItem">Mediterranean</li>
+                <li class="menuItem">Middle Eastern</li>
+                <li class="menuItem">Thai</li>
+              </ul>
+            </li>
+
+            <li class="nav__item nav__item--bookmark">
+              <i class="fa-regular fa-bookmark"></i>
+            </li>
+          </ul>
+
+          <div class="bookmark">
+            <ul class="bookmark__list">
+              <div class="message">
+                <div class="message__icon">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p class="message__paragrph">
+                  No bookmarks yet. Find a nice recipe and bookmark it 😎
+                </p>
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="search-result">
+        <ul class="search-result__list">
+          <!-- <div class="loading">
+            <p class="loading__paragraph">Loading..</p>
+          </div> -->
+        </ul>
+      </div>
+
+      <div class="recipe">
+        <div class="message">
+          <div class="message__icon">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <p class="message__paragrph">
+            Start by searching for a recipe or an ingredient. Have fun!
+          </p>
+        </div>
+      </div>
+      <p class="container__copyright">
+        &copy; Copyright by
+        <a
+          class="twitter-link"
+          target="_blank"
+          href="https://www.linkedin.com/in/ben-el-ansari-011271233/"
+          >Ben El Ansari</a
+        >.
+      </p>
+    </div>
+  </body>
+</html>
