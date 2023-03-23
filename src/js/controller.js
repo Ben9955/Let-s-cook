@@ -138,4 +138,6 @@ RecipeView._reloadHandler(controlloadhandler);
 
 SearchView._submitHandler(controlSubmitHandler);
 
-MenuView._menuHandler(controlMenuHandler);
+// MenuView._menuHandler(controlMenuHandler);
+
+console.log("dvadvvdd");
