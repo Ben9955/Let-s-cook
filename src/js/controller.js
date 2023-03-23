@@ -5,7 +5,6 @@ import {
   state,
   searchData,
   removeBookmark,
-  manageDataServings,
 } from "./model";
 
 import SearchView from "./view/searchView";
@@ -102,12 +101,6 @@ const controlAddBookmark = function () {
   BookmarkView._renderSearchResults(state.bookmarks);
 };
 
-const controllServings = function (action) {
-  manageDataServings(10, state.recipe);
-
-  RecipeView._renderRecipe(state.recipe);
-};
-
 /*
 
 
@@ -118,7 +111,6 @@ const controllServings = function (action) {
 BookmarkView._handleBookmarksContainer();
 RecipeView._handelAddToBookmark(controlAddBookmark);
 
-RecipeView._manageServings(controllServings);
 RecipeView._reloadHandler(controlloadhandler);
 
 SearchView._submitHandler(controlSubmitHandler);

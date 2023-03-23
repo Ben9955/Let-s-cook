@@ -106,6 +106,12 @@
 
         color: $color-semi-light;
       }
+
+      &--servings {
+        border: none;
+        cursor: auto;
+        font-size: 1.8rem;
+      }
     }
   }
 

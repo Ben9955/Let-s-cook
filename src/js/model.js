@@ -203,23 +203,6 @@ export const removeBookmark = function (recipe) {
 
 */
 
-export const manageDataServings = function (newServings, recipe) {
-  const recipeNew = recipe;
-  recipeNew.ingredients.forEach((ing) => {
-    console.log(ing);
-    const quantity = +ing.amount.split(" ")[0];
-    ing.amount =
-      (quantity * newServings) / recipeNew.servings + ing.amount.split(" ")[1];
-    // newQuant = oldquant * newsrving / oldserving
-  });
-
-  recipeNew.servings = newServings;
-
-  state.recipe = recipeNew;
-
-  return recipe;
-};
-
 /*
 
 
