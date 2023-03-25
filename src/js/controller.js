@@ -1,3 +1,5 @@
+// importing some data from the model  and the views
+
 import {
   searchResult,
   recipeData,
@@ -12,8 +14,8 @@ import MenuView from "./view/menuView";
 import RecipeView from "./view/recipeView";
 
 import BookmarkView from "./view/bookmarkView";
-import recipeView from "./view/recipeView";
 
+// this code is for parcel so is not gonna load the page always
 if (module.hot) {
   module.hot.accept();
 }
@@ -21,6 +23,7 @@ if (module.hot) {
 if (state.bookmarks.length > 0)
   BookmarkView._renderSearchResults(state.bookmarks);
 
+// control when the user submit a query from the form
 const controlSubmitHandler = async function () {
   try {
     const query = SearchView.getValue();
@@ -45,13 +48,15 @@ const controlSubmitHandler = async function () {
 
 */
 
+// control when the user submit from the menus
+
 const controlMenuHandler = async function () {
   try {
+    // this is the parameter for the fetch that will pass as arguments in the searchResult
     const parameter = `&${MenuView.getMenu()}=${MenuView.getMenuValue()}`;
     SearchView._renderLoading();
 
     await searchResult("", parameter);
-    console.log(searchData, state.recipe);
     SearchView._renderSearchResults(searchData);
   } catch (err) {}
 };
@@ -63,6 +68,7 @@ const controlMenuHandler = async function () {
 
 */
 
+// each time the user click a recipe the # will change and triger the load recipe info
 const controlloadhandler = async function () {
   try {
     const hash = location.hash;
@@ -70,7 +76,6 @@ const controlloadhandler = async function () {
     if (!hash) return;
 
     const id = hash.slice(1);
-    if (!id) return;
 
     RecipeView._renderLoading();
 
@@ -79,7 +84,6 @@ const controlloadhandler = async function () {
 
     await recipeData(id);
     RecipeView._renderRecipe(state.recipe);
-    console.log(state.recipe);
   } catch (err) {
     console.log(err);
   }
@@ -96,7 +100,6 @@ const controlAddBookmark = function () {
   if (!state.recipe.bookmarked) addBookmark(state.recipe);
   else removeBookmark(state.recipe);
 
-  console.log(state.bookmarks, state.recipe.bookmarked);
   // if (state.bookmarks.length > 0)
   BookmarkView._renderSearchResults(state.bookmarks);
 };
@@ -108,11 +111,14 @@ const controlAddBookmark = function () {
 
 */
 
-BookmarkView._handleBookmarksContainer();
-RecipeView._handelAddToBookmark(controlAddBookmark);
+function init() {
+  RecipeView._handelAddToBookmark(controlAddBookmark);
 
-RecipeView._reloadHandler(controlloadhandler);
+  RecipeView._reloadHandler(controlloadhandler);
 
-SearchView._submitHandler(controlSubmitHandler);
+  SearchView._submitHandler(controlSubmitHandler);
 
-MenuView._menuHandler(controlMenuHandler);
+  MenuView._menuHandler(controlMenuHandler);
+}
+
+init();

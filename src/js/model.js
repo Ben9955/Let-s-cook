@@ -20,6 +20,7 @@ export const state = {
 
 */
 
+// we create the objects from the data passed in
 const createArraySearch = function (results) {
   searchData = [];
 

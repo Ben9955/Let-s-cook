@@ -7,17 +7,6 @@ export default class MealView {
     });
   }
 
-  _renderLoading() {
-    this._container.textContent = "";
-    const html = `
-          <div class="loading">
-            <p class="loading__paragraph">Loading..</p>
-          </div>
-          `;
-
-    this._container.insertAdjacentHTML("beforeend", html);
-  }
-
   _renderError(message) {
     this._container.textContent = "";
     const html = `

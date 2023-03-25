@@ -1,5 +1,4 @@
-import searchView from "./view/searchView";
-
+// this will return a promise that will race with the fetch so in case the fetch take too long will display a message to the user
 const timeOut = function (sec) {
   return new Promise(function (_, reject) {
     setTimeout(() => {
@@ -8,6 +7,7 @@ const timeOut = function (sec) {
   });
 };
 
+// here we fetch the data
 export const getJson = async function (url) {
   try {
     const resp = await Promise.race([timeOut(10), fetch(url)]);

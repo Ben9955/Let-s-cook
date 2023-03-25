@@ -1,5 +1,4 @@
 import MealView from "./mealView";
-import View from "./view";
 
 class MenuView extends MealView {
   _parentElement = document.querySelectorAll(".nav__item__menu");

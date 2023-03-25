@@ -1,4 +1,3 @@
-import { View } from "./view";
 import MealView from "./mealView";
 
 class SearchView extends MealView {
@@ -18,6 +17,17 @@ class SearchView extends MealView {
 
       handler();
     });
+  }
+
+  _renderLoading() {
+    this._container.textContent = "";
+    const html = `
+          <div class="loading">
+            <p class="loading__paragraph">Loading..</p>
+          </div>
+          `;
+
+    this._container.insertAdjacentHTML("beforeend", html);
   }
 }
 
